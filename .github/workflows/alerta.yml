@@ -13,9 +13,13 @@ jobs:
       - name: Checkout del código
         uses: actions/checkout@v3
 
+      - name: Obtener hora actual
+        id: fecha
+        run: echo "time=$(date -u '+%Y-%m-%d %H:%M:%S UTC-4')" >> "$GITHUB_OUTPUT"
+
       - name: Enviar notificación a ntfy.sh
         run: |
-          curl -H "Title: Push a main" \
+          curl -H "Title: Nuevo push a main" \
                -H "Priority: high" \
-               -d "Se ha subido código nuevo al repositorio en la rama main." \
+               -d "🚀 Push por: ${{ github.actor }}%0A🔢 Commit: ${{ github.sha }}%0A📦 Repo: ${{ github.repository }}%0A🕒 Fecha: ${{ steps.fecha.outputs.time }}" \
                https://ntfy.sh/devops-itla
