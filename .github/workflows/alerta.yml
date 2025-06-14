@@ -15,7 +15,7 @@ jobs:
 
       - name: Enviar notificación a ntfy.sh
         run: |
-          curl -H "Title: Push a main" \
+          curl -H "Title: Push a main por ${{ Robertson(Baltero) }}" \
                -H "Priority: high" \
-               -d "Se ha subido código nuevo al repositorio en la rama main." \
+               -d "El usuario ${{ Robertson(Baltero) }} ha subido código nuevo a la rama main del repositorio HolaMundoCS." \
                https://ntfy.sh/devops-itla
