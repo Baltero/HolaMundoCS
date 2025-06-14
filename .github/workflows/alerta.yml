@@ -10,12 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout del código
-        uses: actions/checkout@v3
-
-      - name: Enviar notificación a ntfy.sh
+      - name: Enviar notificación
         run: |
-          curl -H "Title: 🚀 Commit enviado por Baltero" \
-               -H "Priority: high" \
-               -d "Baltero ha subido un nuevo commit a la rama main del repositorio HolaMundoCS. ¡Todo marcha bien! 🎯" \
-               https://ntfy.sh/devops-itla
+          curl -d "Robertson Matos (2023-1581) ha hecho un push a la rama main del repositorio HolaMundoCS. 🚀" https://ntfy.sh/devops-itla
